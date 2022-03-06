@@ -14,7 +14,7 @@ def is_valid(s: str) -> bool:
            "}": "{",
            "]": "["}
     for char in s:
-        if char in dic.values():
+        if char in list(dic.values()):
             stack.append(char)
         elif char in dic:
             if not stack or dic[char] != stack.pop():

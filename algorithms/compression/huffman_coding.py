@@ -305,7 +305,7 @@ class HuffmanCoding:
 
     @staticmethod
     def _create_tree(signs_frequency: dict) -> Node:
-        nodes = [Node(frequency=frequency, sign=char_int) for char_int, frequency in signs_frequency.items()]
+        nodes = [Node(frequency=frequency, sign=char_int) for char_int, frequency in list(signs_frequency.items())]
         heapq.heapify(nodes)
 
         while len(nodes) > 1:

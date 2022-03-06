@@ -19,7 +19,7 @@ class Interval:
         return "Interval ({}, {})".format(self.start, self.end)
 
     def __iter__(self):
-        return iter(range(self.start, self.end))
+        return iter(list(range(self.start, self.end)))
 
     def __getitem__(self, index):
         if index < 0:
@@ -60,7 +60,7 @@ class Interval:
         res = []
         for i in intervals:
             res.append(repr(i))
-        print("".join(res))
+        print(("".join(res)))
 
 
 def merge_intervals(intervals):

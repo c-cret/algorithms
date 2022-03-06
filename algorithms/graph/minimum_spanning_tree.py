@@ -115,16 +115,16 @@ if __name__ == "__main__":
     # 14, 40
     import sys
     for n_m in sys.stdin:
-        n, m = map(int, n_m.split())
+        n, m = list(map(int, n_m.split()))
         ds = DisjointSet(m)
         edges = [None] * m # Create list of size <m>
 
         # Read <m> edges from input
         for i in range(m):
-            u, v, weight = map(int, input().split())
+            u, v, weight = list(map(int, input().split()))
             u -= 1 # Convert from 1-indexed to 0-indexed
             v -= 1 # Convert from 1-indexed to 0-indexed
             edges[i] = Edge(u, v, weight)
 
         # After finish input and graph creation, use Kruskal algorithm for MST:
-        print("MST weights sum:", kruskal(n, edges, ds))
+        print(("MST weights sum:", kruskal(n, edges, ds)))

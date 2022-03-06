@@ -44,11 +44,11 @@ def count_components(l,size):
     
 # Driver code
 if __name__ == '__main__':
-    n,m = map(int, input("Enter the Number of Nodes and Edges \n").split(' '))
+    n,m = list(map(int, input("Enter the Number of Nodes and Edges \n").split(' ')))
     l = [[] for _ in range(n+1)]
     for i in range(m):
         print("Enter the edge's Nodes in form of a b\n")
-        a,b = map(int,input().split(' '))
+        a,b = list(map(int,input().split(' ')))
         l[a].append(b)
         l[b].append(a)
-    print("Total number of Connected Components are : ", count_components(l,n))
+    print(("Total number of Connected Components are : ", count_components(l,n)))

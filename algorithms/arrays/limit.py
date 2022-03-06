@@ -22,4 +22,4 @@ def limit(arr, min_lim=None, max_lim=None):
     if max_lim is None:
         max_lim = max(arr)
 
-    return list(filter(lambda x: (min_lim <= x <= max_lim), arr))
+    return list([x for x in arr if (min_lim <= x <= max_lim)])

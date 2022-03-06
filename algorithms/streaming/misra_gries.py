@@ -33,7 +33,7 @@ def misras_gries(array,k=2):
         if keys[key] == 0:
           del keys[key]
 
-  suspects =  keys.keys()
+  suspects =  list(keys.keys())
   frequencies = {}
   for suspect in suspects:
     freq = _count_frequency(array,int(suspect))

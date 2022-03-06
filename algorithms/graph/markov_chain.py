@@ -10,7 +10,7 @@ my_chain = {
 def __choose_state(state_map):
     choice = random.random()
     probability_reached = 0
-    for state, probability in state_map.items():
+    for state, probability in list(state_map.items()):
         probability_reached += probability
         if probability_reached > choice:
             return state

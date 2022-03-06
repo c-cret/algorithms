@@ -7,7 +7,7 @@ An example:
 www.saadbenn.com?a=1&b=2&a=2') // returns 'www.saadbenn.com?a=1&b=2'
 """
 from collections import defaultdict
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import urllib.parse
 
 # Here is a very non-pythonic grotesque solution
@@ -88,7 +88,7 @@ def strip_url_params3(url, strip=None):
     parse = urllib.parse.urlparse(url)
     query = urllib.parse.parse_qs(parse.query)
     
-    query = {k: v[0] for k, v in query.items() if k not in strip}
+    query = {k: v[0] for k, v in list(query.items()) if k not in strip}
     query = urllib.parse.urlencode(query)
     new = parse._replace(query=query)
     

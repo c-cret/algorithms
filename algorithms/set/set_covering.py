@@ -43,7 +43,7 @@ def optimal_set_cover(universe, subsets, costs):
         subsets (dict): Subsets of U {S1:elements,S2:elements}
         costs (dict): Costs of each subset in S - {S1:cost, S2:cost...}
     """
-    pset = powerset(subsets.keys())
+    pset = powerset(list(subsets.keys()))
     best_set = None
     best_cost = float("inf")
     for subset in pset:
@@ -67,7 +67,7 @@ def greedy_set_cover(universe, subsets, costs):
         subsets (dict): Subsets of U {S1:elements,S2:elements}
         costs (dict): Costs of each subset in S - {S1:cost, S2:cost...}
     """
-    elements = set(e for s in subsets.keys() for e in subsets[s])
+    elements = set(e for s in list(subsets.keys()) for e in subsets[s])
     # elements don't cover universe -> invalid input for set cover
     if elements != universe:
         return None
@@ -80,7 +80,7 @@ def greedy_set_cover(universe, subsets, costs):
         min_cost_elem_ratio = float("inf")
         min_set = None
         # find set with minimum cost:elements_added ratio
-        for s, elements in subsets.items():
+        for s, elements in list(subsets.items()):
             new_elements = len(elements - covered)
             # set may have same elements as already covered -> new_elements = 0
             # check to avoid division by 0 error
@@ -108,8 +108,8 @@ if __name__ == '__main__':
 
     print('Optimal Set Cover:')
     print(optimal_cover)
-    print('Cost = %s' % optimal_cost)
+    print(('Cost = %s' % optimal_cost))
 
     print('Greedy Set Cover:')
     print(greedy_cover)
-    print('Cost = %s' % greedy_cost)
+    print(('Cost = %s' % greedy_cost))

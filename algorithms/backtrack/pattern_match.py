@@ -29,7 +29,7 @@ def pattern_match(pattern, string):
             return True
 
         for end in range(1, len(string)-len(pattern)+2):
-            if pattern[0] not in dic and string[:end] not in dic.values():
+            if pattern[0] not in dic and string[:end] not in list(dic.values()):
                 dic[pattern[0]] = string[:end]
                 if backtrack(pattern[1:], string[end:], dic):
                     return True
