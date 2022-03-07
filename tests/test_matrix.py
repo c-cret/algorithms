@@ -55,7 +55,7 @@ class TestCountPaths(unittest.TestCase):
         self.assertEqual(count_paths.count_paths(2, 3), 3)
         self.assertEqual(count_paths.count_paths(0, 0), -1)
 
-    def test_count_paths_bottomup(self):
+    def test_count_paths_dp_bottomup(self):
         self.assertEqual(count_paths.count_paths_dp_bottomup(2, 3), 3)
         self.assertEqual(count_paths.count_paths_dp_bottomup(0, 0), -1)
 
