@@ -50,10 +50,20 @@ class TestCountPaths(unittest.TestCase):
     Arguments:
         unittest {[type]} -- [description]
     """
+
     def test_count_paths(self):
         self.assertEqual(count_paths.count_paths(2, 3), 3)
         self.assertEqual(count_paths.count_paths(0, 0), -1)
-        
+
+    def test_count_paths_bottomup(self):
+        self.assertEqual(count_paths.count_paths_dp_bottomup(2, 3), 3)
+        self.assertEqual(count_paths.count_paths_dp_bottomup(0, 0), -1)
+
+    def test_count_paths_dp_topdown(self):
+        count = [[0 for i in range(5)] for j in range(5)]
+        self.assertEqual(count_paths.count_paths_dp_topdown(4, 4, count), 20)
+        self.assertEqual(count_paths.count_paths_dp_topdown(0, 0), -1)
+
 
 class TestSparseMul(unittest.TestCase):
     """[summary]
