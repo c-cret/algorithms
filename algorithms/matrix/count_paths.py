@@ -37,6 +37,7 @@ def count_paths_dp_bottomup(m, n):
     res = count[m - 1][n - 1]
     return res
 
+
 def count_paths_dp_topdown(m, n, count):
     if m < 1 or n < 1:
         return -1
@@ -51,7 +52,6 @@ def count_paths_dp_topdown(m, n, count):
         count[n][m] = count_paths_dp_topdown(n - 1, m, count) + count_paths_dp_topdown(n, m - 1, count)
 
     return count[n][m]
-
 
 
 def main():
